@@ -25,6 +25,7 @@ import net.fabricmc.fabric.api.tag.TagFactory;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
+import net.minecraft.command.argument.ArgumentTypes;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.*;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -85,6 +86,7 @@ public class ACE implements ModInitializer {
 		registerBlocks();
 		registerEffects();
 		registerCommands();
+		ArgumentTypes.register("ace:spellcommand",SpellArgumentType.class,new SpellArgumentType.Serializer());
 
 		registerEntityThings();
 		ServerPlayNetworking.registerGlobalReceiver(ACE.SCROLL_PACKET,(server,serverPlayerEntity,serverPlayNetworkHandler,packetByteBuf,packetSender)->

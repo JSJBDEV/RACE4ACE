@@ -1,5 +1,6 @@
 package gd.rf.acro.ace;
 
+import com.google.gson.JsonObject;
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -15,6 +16,8 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.command.EntitySelector;
 import net.minecraft.command.EntitySelectorReader;
 import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.serialize.ArgumentSerializer;
+import net.minecraft.network.PacketByteBuf;
 
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
@@ -38,4 +41,29 @@ public class SpellArgumentType implements ArgumentType<String> {
 
         return CommandSource.suggestMatching(Spells.REGISTRY.stream().map(Spell::name),builder);
     }
+
+
+    public static class Serializer implements ArgumentSerializer<SpellArgumentType> {
+        public Serializer() {
+        }
+
+
+        @Override
+        public void toPacket(SpellArgumentType type, PacketByteBuf buf) {
+
+        }
+
+        public SpellArgumentType fromPacket(PacketByteBuf packetByteBuf) {
+
+            return new SpellArgumentType();
+        }
+
+        @Override
+        public void toJson(SpellArgumentType type, JsonObject json) {
+
+        }
+
+
+    }
+
 }

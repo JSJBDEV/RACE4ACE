@@ -349,7 +349,7 @@ public class Utils {
     private static final Identifier rd = new Identifier("playerex:ranged_damage");
     public static void applyMagicModDamage(LivingEntity caster, Entity target, float base)
     {
-        if(target!=caster && !target.isTeammate(caster))
+        if(target!=null && caster!=null && target!=caster && !target.isTeammate(caster))
         {
 
             target.damage(DamageSource.mob(caster),(float)getMagicScale(caster)+base);
