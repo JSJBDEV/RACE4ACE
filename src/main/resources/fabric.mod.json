@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "ace",
+  "version": "${version}",
+
+  "name": "Acro's Classical Elements",
+  "description": "0ver 100 spells, an electroblobs wizardry type mod",
+  "authors": [
+    "Acrogenous"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/ace/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gd.rf.acro.ace.ACE"
+    ],
+    "client": [{
+      "value": "gd.rf.acro.ace.AceClient"
+    }]
+  },
+  "mixins": [
+    "ace.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
