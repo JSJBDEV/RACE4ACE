@@ -349,12 +349,16 @@ public class Utils {
     private static final Identifier rd = new Identifier("playerex:ranged_damage");
     public static void applyMagicModDamage(LivingEntity caster, Entity target, float base)
     {
-        double add = 0;
-        if(caster!=null && FabricLoader.getInstance().isModLoaded("playerex"))
+        if(target!=caster && !target.isTeammate(caster))
         {
-            add = caster.getAttributes().getValue(Registry.ATTRIBUTE.get(rd));
+            double add = 0;
+            if(caster!=null && FabricLoader.getInstance().isModLoaded("playerex"))
+            {
+                add = caster.getAttributes().getValue(Registry.ATTRIBUTE.get(rd));
+            }
+            target.damage(DamageSource.mob(caster),(float)add+base);
         }
-        target.damage(DamageSource.mob(caster),(float)add+base);
+
     }
 
 }
