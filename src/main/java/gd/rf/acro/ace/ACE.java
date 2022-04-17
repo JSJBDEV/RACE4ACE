@@ -230,7 +230,7 @@ public class ACE implements ModInitializer {
 						}
 						return 0;
 					}))
-					.then(literal("cast").then(CommandManager.argument("spell", new SpellArgumentType()).executes(context ->
+					.requires((source) -> source.hasPermissionLevel(2)).then(literal("cast").then(CommandManager.argument("spell", new SpellArgumentType()).executes(context ->
 					{
 
 

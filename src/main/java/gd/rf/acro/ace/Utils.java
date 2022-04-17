@@ -351,14 +351,20 @@ public class Utils {
     {
         if(target!=caster && !target.isTeammate(caster))
         {
-            double add = 0;
-            if(caster!=null && FabricLoader.getInstance().isModLoaded("playerex"))
-            {
-                add = caster.getAttributes().getValue(Registry.ATTRIBUTE.get(rd));
-            }
-            target.damage(DamageSource.mob(caster),(float)add+base);
+
+            target.damage(DamageSource.mob(caster),(float)getMagicScale(caster)+base);
         }
 
+    }
+
+    public static double getMagicScale(LivingEntity caster)
+    {
+        double add = 0;
+        if(caster!=null && FabricLoader.getInstance().isModLoaded("playerex"))
+        {
+            add = caster.getAttributes().getValue(Registry.ATTRIBUTE.get(rd));
+        }
+        return add;
     }
 
 }
